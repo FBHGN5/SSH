@@ -25,7 +25,7 @@ public class DepartmentDaoTest {
 
     @Test
     public void findByPage() {
-        logger.error("ddddddddddddddddddddddddddddd");
+
     }
 
     @Test
@@ -34,6 +34,10 @@ public class DepartmentDaoTest {
         department.setDname("1");
         department.setDdesc("2");
         departmentDao.save(department);
+        logger.info("ddddddddddddddddddddddddddddd");
+        logger.error("ddddddddddddddddddddddddddddd");
+        logger.warn("ddddddddddddddddddddddddddddd");
+        logger.info("ddddddddddddddddddddddddddddd");
 
     }
 
