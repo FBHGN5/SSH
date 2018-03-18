@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <!--namespace="/"-->
+    <!--当把struts.xml放在src文件夹下而不是resources文件夹中的时候，会出现以下报错（即便加上namespace="/"也不行）-->
+    <!--“There is no Action mapped for namespace [/] and action name [register] associated with context path [/SSH].”-->
+    <include file="struts-default.xml"/>
+    <package name="ssh" extends="struts-default" >
+       <action name="employee_*" class="org.ssh.action.EmployeeAction" method="{1}">
+           <result name="input">/index.jsp</result>
+           <result name="success" type="redirect">/frame.jsp</result>
+           <result name="findAll">/frame/listEmployee.jsp</result>
+           <result name="saveUI">/frame/addEmployee.jsp</result>
+           <result name="saveSuccess" type="redirectAction">employee_findAll.action</result>
+           <result name="editSuccess">/frame/editEmployee.jsp</result>
+           <result name="updateSuccess" type="redirectAction">employee_findAll.action</result>
+           <result name="deleteSuccess" type="redirectAction">employee_findAll.action</result>
+      </action>
+        <action name="department_*" class="org.ssh.action.DepartmentAction" method="{1}">
+            <result name="findAll">/frame/list.jsp </result>
+             <result name="saveUI">/frame/addDepartment.jsp</result>
+            <result name="saveSuccess" type="redirectAction">department_findAll.action</result>
+            <result name="editSuccess">/frame/editDepartment.jsp</result>
+            <result name="updateSuccess" type="redirectAction">department_findAll.action</result>
+            <result name="deleteSuccess" type="redirectAction">department_findAll.action</result>
+        </action>
+    </package>
+
+</struts>
